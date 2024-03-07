@@ -1,5 +1,7 @@
 ## Olá nós somos a BerryBite
 
+a BerryBite é uma empresa atuante no setor de tecnologia 
+
 <!--
 
 **Here are some ideas to get you started:**
