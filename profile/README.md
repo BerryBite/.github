@@ -1,4 +1,4 @@
-<div align="center"> <img src="EXODUS (1).png" with="100%"> </div>
+<div align="center"> <img src="img/berry-bite-logo-cor.png" with="100%"> </div>
 
 
 <p>🍓 A BerryBite é uma empresa atuante no setor de tecnologia especializada no controle de temperatura e umidade de estufas de morango.</p>
