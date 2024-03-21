@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    
+    <h1>Calculadora Financeira</h1>
+
+    <h2>Estufas de Morango</h2>
+    <br>
+
+    Produção total por safra: (Kg)
+    <br>
+    <input id="ipt_prodkg" type="number" min="0">
+    <br><br>
+
+    Perda por safra: (Kg)
+    <br>
+    <input id="ipt_perdakg" type="number" min="0">
+    <br><br>
+
+    Valor da caixa de 250g do morango: (R$)
+    <br>
+    <input id="ipt_valorcaixa" type="number" min="0">
+    <br><br>
+
+    Gasto total por safra: (R$)
+    <br>
+    <input id="ipt_gastosafra" type="number" min="0">
+    <br><br>
+
+
+
+    <button onclick="calcular()">
+        Calcular
+    </button>
+
+    <div id="div_calculo">
+    </div>
+
+
+</body>
+</html>
+
+<script>
+
+
+    /* 250g cada caixa
+    5 safras por ano aproximadamente
+    1kg de morango = 4 caixas
+
+    No cultivo convencional, o custo de produção foi de R$ 22.010,76, índice de lucratividade de 49,46%, 
+    produção média de 871 gramas por 
+    planta e o custo médio de 1,93 R$/ planta, ficando com uma margem bruta de 97,88%.
+
+    Aproximadamente R$ 2,00 gastos por 1 kg produzido.
+    */
+
+    function calcular() {
+        var prodKg = Number(ipt_prodkg.value);
+        var perdaKg = Number(ipt_perdakg.value);
+        var valorCaixa = Number(ipt_valorcaixa.value);
+        var gastoSafra = Number(ipt_gastosafra.value);
+
+        var valorCaixa2 = valorCaixa * 4; 
+        var vendaKg = prodKg - perdaKg;
+        var perdaPorcento = (perdaKg * 100) / prodKg;
+        var lucroAno = ((vendaKg) * valorCaixa) * 5;
+        var vendaPorcento = (vendaKg * 100) / prodKg;
+        var gastoAno = gastoSafra * 5;
+        var gastoPorcento = (gastoAno * 100) / lucroAno;
+        var gastoPorKg = gastoSafra / prodKg;
+        
+
+        div_calculo.innerHTML = (`<br> Gastando aproximadamente <b>R$${gastoPorKg}</b> por Kg do morango e <br> 
+                                Com o valor da caixa grande de 1kg sendo <b>R$${valorCaixa2}</b>,
+                                seu lucro por ano é de <b>R$${lucroAno}</b>;
+                                <br> Você tem uma perda de <b>${perdaPorcento}%</b> da produção total por safra, 
+                                <br> sendo <b>${vendaPorcento}%</b> o percentual de venda;
+                                <br> Gasto de <b>${gastoPorcento}%</b> em relação ao lucro por ano.
+                                <br> Sendo esse gasto de <b>R$${gastoAno}</b> por ano.`);
+
+
+    }
+
+</script>
